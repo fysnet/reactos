@@ -177,6 +177,8 @@ GetFloppyType(UCHAR DriveNumber)
     WRITE_PORT_UCHAR((PUCHAR)0x70, 0x10);
     Data = READ_PORT_UCHAR((PUCHAR)0x71);
 
+    ERR("Ben: GetFloppyType: 0x%02X\n", Data);
+
     if (DriveNumber == 0)
         return Data >> 4;
     else if (DriveNumber == 1)
